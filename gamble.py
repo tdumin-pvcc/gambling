@@ -27,3 +27,5 @@ while True:
     ans=input()
     if ans != 'y':
         break
+    else:
+        print("90% of gamblers quit before their big win.")
