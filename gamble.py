@@ -1,7 +1,11 @@
 import random
-while True:
+start=(input("Press enter to start"))
+points=100
+while(points>0):
+
+    
     population = ['Keyboard', 'Monitor', 'Tower', "Joker"]
-    weights = [0.3, 0.2, 0.01, 0.4]
+    weights = [0.2, 0.2, 0.01, 0.5]
 
     chosen = random.choices(population, weights, k=3)
 
@@ -14,18 +18,44 @@ while True:
     count = chosen.count('Joker')
     print('count of Joker:', count)
 
-    if chosen.count('Keyboard') > 1:
-        print("win")
+    if chosen.count('Keyboard') == 2:
+        print("Win. Would you like to play again? y/n")
+        points=points+25
+        print(points)
+    elif chosen.count('Monitor') == 2:
+        print("Win. Would you like to play again? y/n")
+        points=points+40
+        print(points)
+    elif chosen.count('Tower') == 2:
+        print("Win. Would you like to play again? y/n")
+        points=points+60
+        print(points)
+    elif chosen.count('Keyboard') > 2:
+        print("Win. Would you like to play again? y/n")
+        points=points+100
+        print(points)
+    elif chosen.count('Monitor') > 2:
+        print("Win. Would you like to play again? y/n")
+        points=points+160
+        print(points)
+    elif chosen.count('Tower') > 2:
+        print("Win. Would you like to play again? y/n")
+        points=points+240
+        print(points)
+
     else:
-        if chosen.count('Monitor') > 1:
-            print("win")
-        else:
-            if chosen.count('Tower') > 1:
-                print("win")
-            else:
-               print("Lose. Would you like to play again? y/n")
+        print("Lose. Would you like to play again? y/n")
+        print(points)
     ans=input()
-    if ans != 'y':
+    if ans == 'y':
+        print('Good. Your win comes soon.')
+        points=points-10
+        print(points)
+    elif ans == 'n':
+        print("90% of gamblers quit before their big win.")
+        print(points)
         break
     else:
-        print("90% of gamblers quit before their big win.")
+        print("Not a registered answer!")
+        break
+
